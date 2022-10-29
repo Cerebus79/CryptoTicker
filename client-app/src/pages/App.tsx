@@ -9,9 +9,6 @@ function App() {
 
   const API_URL = 'https://api.coincap.io/v2/assets';
 
-      //activities: Activity[] = [];
-      //activityRegistry = new Map<string,Activity>();
-
 
   const [tokens, setTokens] = useState<CryptToken[]>([]);
   
@@ -19,9 +16,6 @@ function App() {
     GetApi();
   },[tokens])
   
-
-
-
   
   const GetApi = async () =>
   {
