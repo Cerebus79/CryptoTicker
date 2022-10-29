@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Simple Crypto ticker React App
+
+A basic app written in React utilising Tailwind UI for styling to show latest crypto prices
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
