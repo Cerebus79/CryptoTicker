@@ -6,6 +6,7 @@ export default class CryptStore
 {
   
     tokensRegister = new Map<string, CryptToken>();
+    loadingInitial = true;
 
     constructor(){
         makeAutoObservable(this);
@@ -34,6 +35,8 @@ export default class CryptStore
                 cryptotokens.data.forEach(c => {
                     this.tokensRegister.set(c.id,c);
                 });
+
+                this.loadingInitial = false;
             })
 
         }

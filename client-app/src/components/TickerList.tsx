@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FormEvent, FormEventHandler } from "react";
 import CryptToken from "../model/cryptToken";
 import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
 import { observer } from 'mobx-react-lite';
-
+import '../assets/styles/index.css';
 
 
 const TableHead = () => {
@@ -49,6 +49,7 @@ const TickerIcon = observer(({ name, symbol }: CryptToken) => {
 
 const TableContents = observer(() => {
 
+
     const {cryptStore} = useStore();
 
     const {format} = new Intl.NumberFormat('en-US',
@@ -65,8 +66,8 @@ const TableContents = observer(() => {
                 tickers?.length > 0 ? (
                     tickers.map(e => (
 
-                        <tr key={e.id}>
-                            <td className="p-2 whitespace-nowrap">
+                        <tr key={e.id} className="transition duration-700 ease-in-out">
+                            <td className="p-2 whitespace-nowrap" >
                                 <div className="text-left">{e.rank}</div>
                             </td>
                             <td className="p-2 whitespace-nowrap">
@@ -81,7 +82,8 @@ const TableContents = observer(() => {
                                 <div className="text-left">{e.name}</div>
                             </td>
                             <td className="p-2 whitespace-nowrap">
-                                <div className="text-left font-medium text-green-500">{format(e.priceUsd)}</div>
+                                <div className="text-left font-medium text-green-500">
+                                    {format(e.priceUsd)}</div>
                             </td>
                             <td className="p-2 whitespace-nowrap">
                                 <div className="text-lg text-center">{format(e.maxSupply)}</div>
