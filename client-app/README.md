@@ -1,6 +1,9 @@
-# Simple Crypto ticker React App
+# A live Crypto ticker in React App
 
-A basic app written in React utilising Tailwind UI for styling to show latest crypto prices
+A basic app written in React to show crypto prices in realtime. 
+- Tailwind for styling
+- API implemented using AXIOS
+- MOBX for state managment
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

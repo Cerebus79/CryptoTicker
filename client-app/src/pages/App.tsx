@@ -1,47 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../assets/styles/App.css';
-import TickerCard from '../components/TickerCard';
-import CryptToken from '../stores/cryptToken';
-
+import TickerList from '../components/TickerList';
+import NavBar from '../layouts/NavBar';
+import { useStore } from '../stores/store';
+import {observer} from 'mobx-react-lite';
 
 
 function App() { 
 
-  const API_URL = 'https://api.coincap.io/v2/assets';
-
-
-  const [tokens, setTokens] = useState<CryptToken[]>([]);
+  
+  const {cryptStore} = useStore();
   
   useEffect(()=>{
-    GetApi();
-  },[tokens])
-  
-  
-  const GetApi = async () =>
-  {
-  
-    const resp = await fetch(`${API_URL}`,{method: 'GET',redirect:'follow'});
-    if(resp.ok)
-    {
-      const data = await resp.json();
-      setTokens(data.data);
-    }
-    else
-    {
-      console.log(`Fetch failed ${resp.status} ${resp.statusText}`);
-    }
-  }
-
+    cryptStore.GetApi();
+    cryptStore.AutoUpdate();
+  },[cryptStore])
 
 
   return (
     <div className="App">
+      <NavBar />
 
-            <TickerCard tickers={tokens} />
-
+            <TickerList />
       
     </div>
   );
 }
 
-export default App;
+export default observer(App);
