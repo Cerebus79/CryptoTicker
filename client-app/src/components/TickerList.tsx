@@ -1,5 +1,5 @@
 import React from "react";
-import CryptToken from "../stores/cryptToken";
+import CryptToken from "../model/cryptToken";
 import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
 import { observer } from 'mobx-react-lite';

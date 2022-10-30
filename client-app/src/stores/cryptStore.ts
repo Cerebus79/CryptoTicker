@@ -1,9 +1,10 @@
 import {makeAutoObservable, runInAction} from 'mobx';
-import CryptToken from './cryptToken';
+import agent from '../middleware/api/agent';
+import CryptToken from '../model/cryptToken';
 
 export default class CryptStore
 {
-    API_URL:string = 'https://api.coincap.io/v2/assets';
+  
     tokensRegister = new Map<string, CryptToken>();
 
     constructor(){
@@ -15,15 +16,36 @@ export default class CryptStore
     AutoUpdate = () =>
     {
       setInterval(()=>{
-        this.GetApi();
+        this.LoadTokens();
       }, 5000);
     }
     
     //Get the api data
-    GetApi = async () =>
+    LoadTokens = async () =>
     {
-    
-      const resp = await fetch(`${this.API_URL}`,{method: 'GET',redirect:'follow'});
+
+        try
+        {
+
+            const cryptotokens = await agent.CryptoTokens.list();
+
+            runInAction(()=>{
+            
+                cryptotokens.data.forEach(c => {
+                    this.tokensRegister.set(c.id,c);
+                });
+            })
+
+        }
+        catch(error)
+        {
+            console.log(error);
+            
+        }
+
+        /*
+      //non axios is commented
+     const resp = await fetch(`${this.API_URL}`,{method: 'GET',redirect:'follow'});
       if(resp.ok)
       {
         const respJson = await resp.json();
@@ -44,6 +66,6 @@ export default class CryptStore
       else
       {
         console.log(`Fetch failed ${resp.status} ${resp.statusText}`);
-      }
+      }*/
     }
 }

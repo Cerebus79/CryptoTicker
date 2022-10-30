@@ -12,7 +12,7 @@ function App() {
   const {cryptStore} = useStore();
   
   useEffect(()=>{
-    cryptStore.GetApi();
+    cryptStore.LoadTokens();
     cryptStore.AutoUpdate();
   },[cryptStore])
 
