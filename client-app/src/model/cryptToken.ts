@@ -7,10 +7,10 @@ export default class CryptToken
   symbol: string = "";
   name: string = "";
   supply: number | string = "";
-  maxSupply:  number = 0;
+  maxSupply:  number | string = "";
   marketCapUsd:  number = 0;
   volumeUsd24Hr:  number = 0;
-  priceUsd:  number = 0;
+  priceUsd:  number | string = "";
   changePercent24Hr:  number = 0;
   vwap24Hr:  number = 0;
 

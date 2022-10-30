@@ -1,4 +1,4 @@
-import React, { FormEvent, FormEventHandler } from "react";
+import React, { useState, useEffect } from "react";
 import CryptToken from "../model/cryptToken";
 import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
@@ -47,17 +47,79 @@ const TickerIcon = observer(({ name, symbol }: CryptToken) => {
     )
 })
 
+
+const TableRow = observer(( token:CryptToken ) => {
+
+    const [id, setId] = useState('');
+    const [initialLoad, setInitialLoad] = useState(true);
+
+    //const [pulsed, setPulsed] = useState(false);
+
+    useEffect(() => {
+        if(!initialLoad) 
+        {
+            setId(token.id);
+        }
+
+        setInitialLoad(false);
+ 
+        console.log(token.id);
+    },[token.priceUsd]);
+    
+    const rowStyling = {
+        backgroundColor: id===token.id && !initialLoad ? "lightblue" : ""
+    }
+
+    const pulseRow = () => {
+        if(id===token.id && !initialLoad)// && !pulsed)
+        {
+            //setPulsed(true);
+            return "animation-pulse";
+        }
+        else
+        {
+            //setPulsed(false);
+            return "";
+        }
+    }
+
+    console.log(token.id + ' matching to ' + id);
+
+    return(
+        <> 
+        <tr key={token.id} className={`transition duration-700 ease-in-out ${pulseRow()}`} style={rowStyling}>
+        <td className="p-2 whitespace-nowrap" >
+            <div className="text-left">{token.rank}</div>
+        </td>
+        <td className="p-2 whitespace-nowrap">
+            <div className="flex items-center">
+                <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                    <TickerIcon {...token} />
+                </div>
+                <div className="font-medium text-gray-800">{token.symbol}</div>
+            </div>
+        </td>
+        <td className="p-2 whitespace-nowrap">
+            <div className="text-left">{token.name}</div>
+        </td>
+        <td className="p-2 whitespace-nowrap">
+            <div className="text-left font-medium text-green-500">
+                {token.priceUsd}</div>
+        </td>
+        <td className="p-2 whitespace-nowrap">
+            <div className="text-lg text-center">{token.maxSupply}</div>
+        </td>
+    </tr>
+    </>
+    
+
+    );
+  
+})
+
 const TableContents = observer(() => {
 
-
     const {cryptStore} = useStore();
-
-    const {format} = new Intl.NumberFormat('en-US',
-    {
-        style: 'currency',
-        currency: 'USD'
-    })
-
     const tickers = Array.from(cryptStore.tokensRegister.values());
 
     return (
@@ -66,29 +128,7 @@ const TableContents = observer(() => {
                 tickers?.length > 0 ? (
                     tickers.map(e => (
 
-                        <tr key={e.id} className="transition duration-700 ease-in-out">
-                            <td className="p-2 whitespace-nowrap" >
-                                <div className="text-left">{e.rank}</div>
-                            </td>
-                            <td className="p-2 whitespace-nowrap">
-                                <div className="flex items-center">
-                                    <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-                                        <TickerIcon {...e} />
-                                    </div>
-                                    <div className="font-medium text-gray-800">{e.symbol}</div>
-                                </div>
-                            </td>
-                            <td className="p-2 whitespace-nowrap">
-                                <div className="text-left">{e.name}</div>
-                            </td>
-                            <td className="p-2 whitespace-nowrap">
-                                <div className="text-left font-medium text-green-500">
-                                    {format(e.priceUsd)}</div>
-                            </td>
-                            <td className="p-2 whitespace-nowrap">
-                                <div className="text-lg text-center">{format(e.maxSupply)}</div>
-                            </td>
-                        </tr>
+                        <TableRow {...e} />
                     ))
                 ) : (<tr><td colSpan={5}>No tickers found</td></tr>)
             }

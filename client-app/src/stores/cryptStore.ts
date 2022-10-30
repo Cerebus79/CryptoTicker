@@ -18,9 +18,17 @@ export default class CryptStore
     {
       setInterval(()=>{
         this.LoadTokens();
-      }, 5000);
+      }, 2000);
     }
-    
+
+    FormatMoney = (n:number) =>{
+      return new Intl.NumberFormat('en-US',
+          {
+              style: 'currency',
+              currency: 'USD'
+          }).format(n);
+    }
+
     //Get the api data
     LoadTokens = async () =>
     {
@@ -28,11 +36,14 @@ export default class CryptStore
         try
         {
 
+
             const cryptotokens = await agent.CryptoTokens.list();
 
             runInAction(()=>{
             
                 cryptotokens.data.forEach(c => {
+                    c.priceUsd = this.FormatMoney(c.priceUsd as number);
+                    c.maxSupply = this.FormatMoney(c.maxSupply as number);
                     this.tokensRegister.set(c.id,c);
                 });
 
