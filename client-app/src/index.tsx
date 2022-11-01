@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './assets/styles/index.css';
-import App from './pages/App';
+import App from './layouts/App';
 import reportWebVitals from './reportWebVitals';
 import { store, StoreContext } from './stores/store';
 
@@ -12,7 +13,12 @@ root.render(
   
   <React.StrictMode>
     <StoreContext.Provider value={store}>
-    <App />
+
+    <div style={{marginTop:'4.2em'}}>
+      <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    </div>
     </StoreContext.Provider>
   </React.StrictMode>
 );

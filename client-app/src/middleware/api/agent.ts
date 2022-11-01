@@ -1,5 +1,6 @@
 import axios, {AxiosResponse} from "axios";
 import CryptToken from '../../model/cryptToken';
+import ExchangeStruct from "../../model/exchangeStruct";
 
 const API_URL:string = 'https://api.coincap.io/v2';
 
@@ -22,10 +23,17 @@ axios.interceptors.response.use(async response => {
     }
 })*/
 
-interface respStructure
+interface respTokenStructure
 {
     data:CryptToken[],
     timestamp: string
+}
+
+interface respExchStructure
+{
+    data:ExchangeStruct[],
+    timestamp: string
+    
 }
 
 const axiosRequestConfig = {method: 'GET',redirect:'follow'}
@@ -39,14 +47,16 @@ const request = {
    // delete: <T>(url : string) => axios.delete<T>(url).then(responseBody),
 }
 
-const CryptoTokens = 
+const CryptoApiData = 
 {
-    list: () => request.get<respStructure>('/assets'),
-    details: (id:string) => request.get<respStructure>(`/assetes/${id}`)
+    list: () => request.get<respTokenStructure>('/assets'),
+    details: (id:string) => request.get<respTokenStructure>(`/assetes/${id}`),
+    exchanges: () => request.get<respExchStructure>('/exchanges')
+   
 }
 
 const agent = {
-    CryptoTokens
+    CryptoApiData
 }
 
 export default agent;

@@ -1,11 +1,13 @@
 import {makeAutoObservable, runInAction} from 'mobx';
 import agent from '../middleware/api/agent';
 import CryptToken from '../model/cryptToken';
+import ExchangeStruct from '../model/exchangeStruct';
 
 export default class CryptStore
 {
   
     tokensRegister = new Map<string, CryptToken>();
+    exchangeRegister = new Map<string, ExchangeStruct>();
     loadingInitial = true;
 
     constructor(){
@@ -29,6 +31,40 @@ export default class CryptStore
           }).format(n);
     }
 
+    //Get the api data for the exchange end point
+    LoadExchanges = async () =>{
+
+      this.loadingInitial = true;
+
+      try
+      {
+      
+          const exchanges = await agent.CryptoApiData.exchanges();
+
+          runInAction( ()=>{
+            exchanges.data.forEach((exchange)=>{
+              exchange.volumeUsd = this.FormatMoney(exchange.volumeUsd as number);
+              exchange.percentTotalVolume = this.FormatMoney(exchange.percentTotalVolume as number);
+              this.exchangeRegister.set(exchange.exchangeId, exchange);
+             
+            })
+            
+            this.loadingInitial = false;
+        } )
+            
+          
+      }
+      catch(error)
+      {
+        console.log(error);
+        this.loadingInitial = false;
+      }
+
+
+
+
+    }
+
     //Get the api data
     LoadTokens = async () =>
     {
@@ -36,8 +72,7 @@ export default class CryptStore
         try
         {
 
-
-            const cryptotokens = await agent.CryptoTokens.list();
+            const cryptotokens = await agent.CryptoApiData.list();
 
             runInAction(()=>{
             

@@ -4,6 +4,7 @@ import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
 import { observer } from 'mobx-react-lite';
 import '../assets/styles/index.css';
+import LoadingComponent from "./LoadingComponent";
 
 
 const TableHead = () => {
@@ -63,7 +64,7 @@ const TableRow = observer(( token:CryptToken ) => {
 
         setInitialLoad(false);
  
-        console.log(token.id);
+        //console.log(token.id);
     },[token.priceUsd]);
     
     const rowStyling = {
@@ -83,7 +84,7 @@ const TableRow = observer(( token:CryptToken ) => {
         }
     }
 
-    console.log(token.id + ' matching to ' + id);
+    //console.log(token.id + ' matching to ' + id);
 
     return(
         <> 
@@ -137,8 +138,18 @@ const TableContents = observer(() => {
 })
 
 export default observer(function TickerList() {
+
+    const {cryptStore} = useStore();
+  
+    useEffect(()=>{
+      cryptStore.LoadTokens();
+      cryptStore.AutoUpdate();
+    },[cryptStore])
+  
+    if(cryptStore.loadingInitial) return <LoadingComponent content='Loading app..' /> 
+  
+
     return (
-        <div style={{marginTop:60}}>
             <section className="flex flex-col justify-center antialiased bg-gray-100 text-gray-600 min-h-screen p-4">
                 <div className="h-full">
 
@@ -161,7 +172,7 @@ export default observer(function TickerList() {
                     </div>
                 </div>
             </section>
-        </div>
+        
     )
 })
 
