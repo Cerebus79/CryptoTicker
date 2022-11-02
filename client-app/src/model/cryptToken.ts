@@ -13,6 +13,7 @@ export default class CryptToken
   priceUsd:  number | string = "";
   changePercent24Hr:  number = 0;
   vwap24Hr:  number = 0;
+  changed: undefined | boolean = false;
 
   constructor (){}
 

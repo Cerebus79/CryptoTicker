@@ -1,8 +1,5 @@
 import React from "react";
 
-interface props {
-    content: string;
-}
 
 export default function LoadingComponent({ content = 'Loading...' }) {
     return (

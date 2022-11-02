@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import CryptToken from "../model/cryptToken";
 import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
@@ -51,44 +51,19 @@ const TickerIcon = observer(({ name, symbol }: CryptToken) => {
 
 const TableRow = observer(( token:CryptToken ) => {
 
-    const [id, setId] = useState('');
-    const [initialLoad, setInitialLoad] = useState(true);
-
-    //const [pulsed, setPulsed] = useState(false);
-
-    useEffect(() => {
-        if(!initialLoad) 
-        {
-            setId(token.id);
-        }
-
-        setInitialLoad(false);
- 
-        //console.log(token.id);
-    },[token.priceUsd]);
-    
     const rowStyling = {
-        backgroundColor: id===token.id && !initialLoad ? "lightblue" : ""
+        backgroundColor: token.changed ? "lightblue" : ""
     }
 
-    const pulseRow = () => {
-        if(id===token.id && !initialLoad)// && !pulsed)
-        {
-            //setPulsed(true);
-            return "animation-pulse";
-        }
-        else
-        {
-            //setPulsed(false);
-            return "";
-        }
-    }
+    const pulseRow = token.changed ? "animation-pulse" : ""  
 
-    //console.log(token.id + ' matching to ' + id);
+    if(token.changed)
+        console.log(token.id + ' flag ' + token.changed + ' ' + token.priceUsd);
+
 
     return(
-        <> 
-        <tr key={token.id} className={`transition duration-700 ease-in-out ${pulseRow()}`} style={rowStyling}>
+        
+        <tr key={token.id} className={`transition duration-700 ease-in-out ${pulseRow}`} style={rowStyling}>
         <td className="p-2 whitespace-nowrap" >
             <div className="text-left">{token.rank}</div>
         </td>
@@ -111,7 +86,7 @@ const TableRow = observer(( token:CryptToken ) => {
             <div className="text-lg text-center">{token.maxSupply}</div>
         </td>
     </tr>
-    </>
+    
     
 
     );
@@ -140,11 +115,11 @@ const TableContents = observer(() => {
 export default observer(function TickerList() {
 
     const {cryptStore} = useStore();
-  
+
     useEffect(()=>{
-      cryptStore.LoadTokens();
-      cryptStore.AutoUpdate();
-    },[cryptStore])
+        cryptStore.LoadTokens();
+        cryptStore.AutoUpdate();
+      },[cryptStore])
   
     if(cryptStore.loadingInitial) return <LoadingComponent content='Loading app..' /> 
   

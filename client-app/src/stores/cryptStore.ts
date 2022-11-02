@@ -13,12 +13,11 @@ export default class CryptStore
     constructor(){
         makeAutoObservable(this);
     }
-
     
     //our auto refresh of the values every 5 seconds
     AutoUpdate = () =>
     {
-      setInterval(()=>{
+        setInterval(()=>{
         this.LoadTokens();
       }, 2000);
     }
@@ -68,20 +67,26 @@ export default class CryptStore
     //Get the api data
     LoadTokens = async () =>
     {
-
+        this.loadingInitial = true;
+        
         try
         {
 
             const cryptotokens = await agent.CryptoApiData.list();
 
             runInAction(()=>{
+
+              
             
                 cryptotokens.data.forEach(c => {
                     c.priceUsd = this.FormatMoney(c.priceUsd as number);
                     c.maxSupply = this.FormatMoney(c.maxSupply as number);
+
+                    this.tokensRegister.get(c.id)?.priceUsd !== c.priceUsd ? c.changed = true : c.changed=false;
+                    
                     this.tokensRegister.set(c.id,c);
                 });
-
+                
                 this.loadingInitial = false;
             })
 
@@ -118,3 +123,4 @@ export default class CryptStore
       }*/
     }
 }
+
