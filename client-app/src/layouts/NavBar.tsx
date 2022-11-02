@@ -2,7 +2,6 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { Link } from "react-router-dom";
 import icon from '../assets/images/bitcoin_iconv2.jpg'
-import CryptStore from "../stores/cryptStore";
 import { useStore } from "../stores/store";
 import SlideMenu from "./menu/SlideMenu";
 
@@ -19,7 +18,9 @@ function Navbar()
 
     function OpenMenu()
     {
-      cryptStore.ToggleSlideMenu(true);
+      cryptStore.showSlideMenu ? cryptStore.ToggleSlideMenu(false)
+      : cryptStore.ToggleSlideMenu(true);
+      
     }
 
    
