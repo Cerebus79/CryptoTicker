@@ -9,9 +9,15 @@ export default class CryptStore
     tokensRegister = new Map<string, CryptToken>();
     exchangeRegister = new Map<string, ExchangeStruct>();
     loadingInitial = true;
+    showSlideMenu = false;
 
     constructor(){
         makeAutoObservable(this);
+    }
+
+    ToggleSlideMenu = (show:boolean) =>
+    {
+      this.showSlideMenu = show;
     }
     
     //our auto refresh of the values every 5 seconds
@@ -67,7 +73,7 @@ export default class CryptStore
     //Get the api data
     LoadTokens = async () =>
     {
-        this.loadingInitial = true;
+        //this.loadingInitial = true;
         
         try
         {
