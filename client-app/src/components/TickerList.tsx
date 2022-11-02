@@ -57,10 +57,6 @@ const TableRow = observer(( token:CryptToken ) => {
 
     const pulseRow = token.changed ? "animation-pulse" : ""  
 
-    if(token.changed)
-        console.log(token.id + ' flag ' + token.changed + ' ' + token.priceUsd);
-
-
     return(
         
         <tr key={token.id} className={`transition duration-700 ease-in-out ${pulseRow}`} style={rowStyling}>
