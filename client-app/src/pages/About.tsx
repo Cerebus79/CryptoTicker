@@ -16,7 +16,7 @@ export default function About()
             <div className="lg:flex">
                 <div className="relative mt-8 md:mt-16 space-y-8 sm:w-10/12 md:w-2/3 lg:ml-0 sm:mx-auto text-center lg:text-left lg:mr-auto lg:w-7/12">
                     <p className="sm:text-lg text-gray-700 dark:text-gray-300 lg:w-11/12">
-                        I hope you enjoy this app, the goal is a simple app to show the smoothness of a React front end powered by Restful API data to update and display realtime information on the crypto markets</p>
+                        I hope you enjoy this app, the goal is a simple fully responsive app to show the smoothness of a React front end powered by Restful API data to update and display realtime information on the crypto markets</p>
                     
                     <p>
                         The app utilises the coincap api for data, styled with tailwind and state managed via mobx.
