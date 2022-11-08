@@ -9,6 +9,7 @@ A basic app written in React to show crypto prices in realtime.
 - MOBX for state managment
 - Deployed using CI/CD pipelines to Azure 
 - Utilising a back end .core Rest API for login/account features
+- Api testing via Postman
 
 https://cryptoticker.azurewebsites.net/
 
