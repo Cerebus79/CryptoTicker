@@ -1,0 +1,12 @@
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/bin/Debug/net6.0/Domain.deps.json
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/bin/Debug/net6.0/Domain.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/bin/Debug/net6.0/Domain.pdb
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.AssemblyInfoInputs.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.AssemblyInfo.cs
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.csproj.CoreCompileInputs.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/refint/Domain.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/Domain.pdb
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Domain/obj/Debug/net6.0/ref/Domain.dll

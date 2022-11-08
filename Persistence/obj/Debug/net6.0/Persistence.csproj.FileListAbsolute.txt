@@ -1,0 +1,15 @@
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/bin/Debug/net6.0/Persistence.deps.json
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/bin/Debug/net6.0/Persistence.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/bin/Debug/net6.0/Persistence.pdb
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/bin/Debug/net6.0/Domain.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/bin/Debug/net6.0/Domain.pdb
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.csproj.AssemblyReference.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.AssemblyInfoInputs.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.AssemblyInfo.cs
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.csproj.CoreCompileInputs.cache
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.csproj.CopyComplete
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/refint/Persistence.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/Persistence.pdb
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/Persistence/obj/Debug/net6.0/ref/Persistence.dll
