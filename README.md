@@ -1,5 +1,5 @@
 # CryptoTicker
-A demo app using react to display crypto prices via REST API
+A demo app using react to display crypto prices via REST API using clean architecture principles.
 
 ## Details
 
@@ -8,6 +8,7 @@ A basic app written in React to show crypto prices in realtime.
 - API implemented using AXIOS
 - MOBX for state managment
 - Deployed using CI/CD pipelines to Azure 
+- Utilising a back end .core Rest API for login/account features
 
 https://cryptoticker.azurewebsites.net/
 
@@ -20,6 +21,7 @@ Adding a .Core c# Restful API back end for a user login area to provide storing 
 - Basic api end points, DONE
 - Basic database structure, DONE
 - Build login form
+- Hook up .Core API
 - Add token authentication
 - Switch to Sql Server
 - DevOps -> Add test pipelines
