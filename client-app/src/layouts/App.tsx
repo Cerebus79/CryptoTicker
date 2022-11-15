@@ -17,8 +17,7 @@ function App() {
         <Route path='/' element={<CryptoDashboard />} />
         <Route path='/exchanges' element={<Exchanges />} />
         <Route path='/about' element={<About />} />  
-        <Route path='/login' element={<LoginPage />} />  
-        <Route path='*' element={<NotFound />} />  
+
       </Routes>
     </div>
   );
