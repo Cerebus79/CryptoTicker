@@ -88,7 +88,8 @@ export default class CryptStore
                     c.priceUsd = this.FormatMoney(c.priceUsd as number);
                     c.maxSupply = this.FormatMoney(c.maxSupply as number);
 
-                    this.tokensRegister.get(c.id)?.priceUsd !== c.priceUsd ? c.changed = true : c.changed=false;
+                    //if the price is different to previous mark changed flag
+                    this.tokensRegister.get(c.id)?.priceUsd !== c.priceUsd && !this.loadingInitial ? c.changed = true : c.changed=false;
                     
                     this.tokensRegister.set(c.id,c);
                 });

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import CryptToken from "../model/cryptToken";
 import defaultIcon from '../assets/images/bitcoin_iconv2.jpg'
 import { useStore } from "../stores/store";
@@ -58,8 +58,9 @@ const TableRow = observer(( token:CryptToken ) => {
     const pulseRow = token.changed ? "animation-pulse" : ""  
 
     return(
-        
-        <tr key={token.id} className={`transition duration-700 ease-in-out ${pulseRow}`} style={rowStyling}>
+        <Fragment key={token.id}>
+
+        <tr  className={`transition duration-700 ease-in-out ${pulseRow}`} style={rowStyling}>
         <td className="p-2 whitespace-nowrap" >
             <div className="text-left">{token.rank}</div>
         </td>
@@ -83,7 +84,7 @@ const TableRow = observer(( token:CryptToken ) => {
         </td>
     </tr>
     
-    
+    </Fragment>
 
     );
   

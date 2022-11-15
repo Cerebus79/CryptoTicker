@@ -63,3 +63,8 @@
 /Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.Extensions.Identity.Core.dll
 /Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/Krissi1/Documents/DanStuff/Programming/CryptoTicker/API/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll

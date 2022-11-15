@@ -5,6 +5,7 @@ import './assets/styles/index.css';
 import App from './layouts/App';
 import reportWebVitals from './reportWebVitals';
 import { store, StoreContext } from './stores/store';
+import { ThemeProvider } from "@material-tailwind/react";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,7 +17,9 @@ root.render(
 
     <div style={{marginTop:'4.2em'}}>
       <BrowserRouter>
+      <ThemeProvider>
       <App />
+      </ThemeProvider>
     </BrowserRouter>
     </div>
     </StoreContext.Provider>

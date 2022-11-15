@@ -2,35 +2,37 @@ using Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Domain;
+using API.Middleware;
+using API.Extensions;
+
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy  =>
+                      {
+                          policy.WithOrigins("http://localhost:3000")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .WithMethods("POST","PUT", "DELETE", "GET");;
+                      });
+});
 
-// Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>(
-    opt => opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//Add Identity services
-builder.Services.AddIdentityCore<AppUser>(opt => {
-    opt.Password.RequireNonAlphanumeric = false;
-})
-.AddEntityFrameworkStores<DataContext>()
-.AddSignInManager<SignInManager<AppUser>>();
-
-builder.Services.AddAuthentication();
-
-//builder.Services.addidentityservices
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//use our extension method to add services
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionMiddleware>(); //use our own exception handling middleware
+//app.UseHttpsRedirection();
 
+app.UseCors(MyAllowSpecificOrigins);
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

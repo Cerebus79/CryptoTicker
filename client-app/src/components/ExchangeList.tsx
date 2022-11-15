@@ -8,24 +8,30 @@ import ExchangeStruct from "../model/exchangeStruct";
 
 const TableHead = () => {
 
+    const styleHead = "text-xs font-semibold uppercase text-gray-400 bg-gray-50";
+    const styleTh = "p-2 whitespace-nowrap";
+    const styleDivLeft = "font-semibold text-left";
+    const styleDivCenter = "font-semibold text-center";
+
+
     return (
         <>
-            <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+            <thead className={styleHead}>
                 <tr>
-                    <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Rank</div>
+                    <th className={styleTh}>
+                        <div className={styleDivLeft}>Rank</div>
                     </th>
-                    <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Name</div>
+                    <th className={styleTh}>
+                        <div className={styleDivLeft}>Name</div>
                     </th>
-                    <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Trading Pairs</div>
+                    <th className={styleTh}>
+                        <div className={styleDivLeft}>Trading Pairs</div>
                     </th>
-                    <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Volume 24hrs</div>
+                    <th className={styleTh}>
+                        <div className={styleDivLeft}>Volume 24hrs</div>
                     </th>
-                    <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-center">Exchange Url</div>
+                    <th className={styleTh}>
+                        <div className={styleDivCenter}>Exchange Url</div>
                     </th>
                 </tr>
             </thead>
