@@ -1,13 +1,14 @@
 import { Disclosure} from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 import icon from '../../assets/images/bclogo.png'
 import ProfileMenu from '../../components/menu/ProfileMenu'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Coins', href: '/', current: false },
-  { name: 'Exchanges', href: '/exchanges', current: false },
-  { name: 'About', href: '/about', current: false },
+  { name: 'Home', target: '/', current: true },
+  { name: 'Coins', target: '/', current: false },
+  { name: 'Exchanges', target: '/exchanges', current: false },
+  { name: 'About', target: '/about', current: false },
 ]
 
 
@@ -18,6 +19,7 @@ function classNames(...classes:any) {
 
 
 export default function NavBartw() {
+
 
 
   return (
@@ -54,9 +56,9 @@ export default function NavBartw() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link 
                         key={item.name}
-                        href={item.href}
+                        to={item.target}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -64,7 +66,7 @@ export default function NavBartw() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -89,17 +91,19 @@ export default function NavBartw() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
+                
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={Link}
+                  to={item.target}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
-                  {item.name}
+                 {item.name}
+                  
                 </Disclosure.Button>
               ))}
             </div>

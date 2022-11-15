@@ -6,6 +6,7 @@ import Exchanges from '../pages/Exchanges';
 import About from '../pages/About';
 import LoginPage from '../pages/LoginPage';
 import NavBartw from './menu/NavBartw';
+import NotFound from '../pages/errors/NotFound';
 
 function App() { 
 
@@ -17,7 +18,7 @@ function App() {
         <Route path='/exchanges' element={<Exchanges />} />
         <Route path='/about' element={<About />} />  
         <Route path='/login' element={<LoginPage />} />  
-
+        <Route path='*' element={<NotFound />} />  
       </Routes>
     </div>
   );
