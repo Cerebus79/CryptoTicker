@@ -1,5 +1,3 @@
-import react from 'react'
-
 interface props {
     errorTitle?: string;
     errorMsg : string;

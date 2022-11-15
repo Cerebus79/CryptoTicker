@@ -2,7 +2,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../middleware/api/agent";
 import { User, UserFormValues } from "../model/user";
-import { store } from "./store";
+
 //import { history } from "../..";
 
 export default class UserStore
