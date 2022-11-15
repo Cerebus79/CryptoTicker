@@ -11,8 +11,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  
-//  <React.StrictMode> //disabled due to mobx double render bug breaking the tickerlist flash effect. Doesnt happen in production.
+  //disabled due to mobx double render bug breaking the tickerlist flash effect. Doesnt happen in production.
+ <React.StrictMode> 
     <StoreContext.Provider value={store}>
 
     <div style={{marginTop:'4.2em'}}>
@@ -23,7 +23,7 @@ root.render(
     </BrowserRouter>
     </div>
     </StoreContext.Provider>
-  //</React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
