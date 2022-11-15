@@ -91,7 +91,7 @@ export default observer(function Login() {
                             </div>
                             {formik.touched.password && formik.errors.password ? <ErrorMsg errorMsg={formik.errors.password} />  : null}
 
-                            <a href="#" className="text-xs text-black-600 hover:underline">
+                            <a href="/forgot-password" className="text-xs text-black-600 hover:underline">
                                 Forget Password?
                             </a>
                             <div className="mt-6">
