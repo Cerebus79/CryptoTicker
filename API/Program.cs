@@ -56,10 +56,12 @@ catch(Exception ex)
     logger.LogError(ex, "Error occurred during migration");
 }
 
+app.UseSwagger();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    
     app.UseSwaggerUI();
 }
 
