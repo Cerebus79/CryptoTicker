@@ -8,6 +8,9 @@ import { useNavigate } from "react-router";
 
 
 const API_URL:string = 'https://api.coincap.io/v2';
+let API_URL_ACCT:string = 'http://localhost:5187/api';
+
+process.env.NODE_ENV==='production' ? API_URL_ACCT = 'https://cryptoapi-apim.azure-api.net/api' :  API_URL_ACCT = 'http://localhost:5187/api'
 
 axios.defaults.baseURL = API_URL;
 
@@ -102,7 +105,7 @@ const CryptoApiData =
 
 const AccountApi = 
 {
-    login: (user:UserFormValues) => request.post<User>('http://localhost:5187/api/account/login', user)
+    login: (user:UserFormValues) => request.post<User>(`${API_URL_ACCT}/account/login`, user)
    
 }
 
