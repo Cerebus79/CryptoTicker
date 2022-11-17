@@ -46,6 +46,17 @@ public class AccountController : ControllerBase
 
     }
 
+    [HttpGet("test")]
+    public async Task<ActionResult<string>> Test()
+    {
+        var result = "I'm a test response";
+
+        return result!;
+
+        //return await _context.WatchList.ToListAsync<WatchList>();
+
+    }
+
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>>Login(LoginDto loginDto)
     {

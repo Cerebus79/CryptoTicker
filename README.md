@@ -21,9 +21,9 @@ Adding a .Core c# Restful API back end for a user login area to provide storing 
 
 - Basic api end points, DONE
 - Basic database structure, DONE
-- Build login form
+- Build login form, DONE
 - Hook up .Core API
-- Add token authentication
+- Add token authentication, DONE
 - Switch to Sql Server
 - DevOps -> Add test pipelines
 - Test & Deploy
