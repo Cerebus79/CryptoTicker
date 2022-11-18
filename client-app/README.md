@@ -1,9 +1,20 @@
 # A live Crypto ticker in React App
 
-A basic app written in React to show crypto prices in realtime. 
-- Tailwind for styling
-- API implemented using AXIOS
-- MOBX for state managment
+A app I've written to show crypto prices in realtime. 
+
+## Client (front-end)
+
+- React with MOBX and TypeScript
+- Tailwind CSS for styling
+- API interaction using AXIOS from 2 separate apis
+- Deployed to Azure App services Node.js env using CI/CD from gitHub
+
+## Service (back-end)
+- .NET 6.0
+- MediatR as CQRS implementation
+- Entity framework back end to a MySql DB (later to sql server)
+- Tested with Postman / Swagger UI
+- Deployed to Azure App/API management services .Core Windows env using CI/CD from gitHub
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
