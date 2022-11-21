@@ -6,7 +6,7 @@ interface props {
 }
 
 //Button with loading option
-export default function Button({ content = "Button", type = "submit", loadingText = "Loading...", loading=false }: props) {
+export default function Button({ content = "Button", type = "submit", loading=false }: props) {
 
     const styling = "group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2";
 
